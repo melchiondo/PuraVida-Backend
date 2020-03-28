@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.melchicorp.puravida.dao.AutosDAO;
-import com.melchicorp.puravida.entitys.Auto;
+import com.melchicorp.puravida.dao.ProductosDAO;
+import com.melchicorp.puravida.entitys.Producto;
 
 @RestController
 @RequestMapping("productos")
 public class ProductosREST {
 
 	@Autowired
-	private AutosDAO autosDAO;
+	private ProductosDAO autosDAO;
 
 //	//////////////////////////////////////////////////////
 //	// UpdateAuto - modificación de auto --> PUT /autos //
