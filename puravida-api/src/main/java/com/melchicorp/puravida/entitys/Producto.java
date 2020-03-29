@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="autos")
+@Table(name="productos")
 public class Producto {
 	
 	@Id
@@ -57,6 +57,126 @@ public class Producto {
 	
 	@Column(name="descuento")
 	private String descuento;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getColores() {
+		return colores;
+	}
+
+	public void setColores(String colores) {
+		this.colores = colores;
+	}
+
+	public String getTalles() {
+		return talles;
+	}
+
+	public void setTalles(String talles) {
+		this.talles = talles;
+	}
+
+	public String getDescCorta() {
+		return descCorta;
+	}
+
+	public void setDescCorta(String descCorta) {
+		this.descCorta = descCorta;
+	}
+
+	public String getDescLarga() {
+		return descLarga;
+	}
+
+	public void setDescLarga(String descLarga) {
+		this.descLarga = descLarga;
+	}
+
+	public String getImgPortada() {
+		return imgPortada;
+	}
+
+	public void setImgPortada(String imgPortada) {
+		this.imgPortada = imgPortada;
+	}
+
+	public String getImgLista() {
+		return imgLista;
+	}
+
+	public void setImgLista(String imgLista) {
+		this.imgLista = imgLista;
+	}
+
+	public String getTemporada() {
+		return temporada;
+	}
+
+	public void setTemporada(String temporada) {
+		this.temporada = temporada;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(String precio) {
+		this.precio = precio;
+	}
+
+	public String getMoneda() {
+		return moneda;
+	}
+
+	public void setMoneda(String moneda) {
+		this.moneda = moneda;
+	}
+
+	public String getDescuento() {
+		return descuento;
+	}
+
+	public void setDescuento(String descuento) {
+		this.descuento = descuento;
+	}
 
 //	--> EJEMPLO:
 //    id: "1",

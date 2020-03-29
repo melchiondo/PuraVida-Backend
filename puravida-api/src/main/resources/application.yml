@@ -7,6 +7,6 @@ spring:
     dialect: org.hibernate.dialect.MySQL5Dialect
  datasource:
   driver-class-name: com.mysql.cj.jdbc.Driver
-  url: jdbc:mysql://puravida.cnuizsgowmhz.us-east-1.rds.amazonaws.com:3306/autos?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+  url: jdbc:mysql://puravida.cnuizsgowmhz.us-east-1.rds.amazonaws.com:3306/puravida?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
   username: admin
   password: Europa2017

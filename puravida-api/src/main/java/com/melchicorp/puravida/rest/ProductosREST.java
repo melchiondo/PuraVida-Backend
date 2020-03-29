@@ -24,72 +24,85 @@ import com.melchicorp.puravida.entitys.Producto;
 public class ProductosREST {
 
 	@Autowired
-	private ProductosDAO autosDAO;
+	private ProductosDAO productosDAO;
 
-//	//////////////////////////////////////////////////////
-//	// UpdateAuto - modificación de auto --> PUT /autos //
-//	//////////////////////////////////////////////////////
-//	@PutMapping
-//	public ResponseEntity<Auto> deleteAuto(@RequestBody Auto auto) {
-//		Optional<Auto> optionalAuto = autosDAO.findById(auto.getPatente());
-//		if (optionalAuto.isPresent()) {
-//			Auto updateAuto = optionalAuto.get();
-//			updateAuto.setAnio(auto.getAnio());
-//			updateAuto.setColor(auto.getColor());
-//			updateAuto.setMarca(auto.getMarca());
-//			updateAuto.setModelo(auto.getModelo());
-//			updateAuto.setNroChasis(auto.getNroChasis());
-//			updateAuto.setNroMotor(auto.getNroMotor());
-//			autosDAO.save(updateAuto);
-//			return ResponseEntity.ok(updateAuto);
-//		} else {
-//			return ResponseEntity.notFound().build();
-//		}
-//	}
-//	
-//	///////////////////////////////////////////////////////////
-//	// DeleteAuto - Baja de auto --> DELETE /autos/{patente} //
-//	///////////////////////////////////////////////////////////
-//	@DeleteMapping(value = "{patente}")
-//	public ResponseEntity<Void> deleteAuto(@PathVariable("patente") String patente) {
-//		autosDAO.deleteById(patente);
-//		return ResponseEntity.ok(null);
-//	}
-//	
-//	/////////////////////////////////////////////////////
-//	// createAuto - Alta de nuevo auto --> POST /autos //
-//	/////////////////////////////////////////////////////
-//	@PostMapping
-//	public ResponseEntity<Auto> createAuto(@RequestBody Auto auto) {
-//		Auto newAuto = autosDAO.save(auto);
-//		return ResponseEntity.ok(newAuto);
-//	}
-//
-//	//////////////////////////////////////////////////////////////////////
-//	// getAutoById - Responde auto por patente --> GET /autos/{patente} //
-//	//////////////////////////////////////////////////////////////////////
-//	@RequestMapping(value = "{patente}")
-//	public ResponseEntity<Auto> getAutoById(@PathVariable("patente") String patente) {
-//		Optional<Auto> optionalAuto = autosDAO.findById(patente);
-//		if (optionalAuto.isPresent()) {
-//			return ResponseEntity.ok(optionalAuto.get());
-//		} else {
-//			return ResponseEntity.noContent().build();
-//		}
-//	}
-//
-//	///////////////////////////////////////////////////////
-//	// getAuto - Responde todos los autos --> GET /autos //
-//	///////////////////////////////////////////////////////
-//	@GetMapping
-//	public ResponseEntity<List<Auto>> getAuto() {
-//		List<Auto> autos = autosDAO.findAll();
-//		return ResponseEntity.ok(autos);
-//	}
-
-	@GetMapping
-	public String Hello() {
-		return "API Productos de Pura Vida!";
+	//////////////////////////////////////////////////////////////////
+	// UpdateProducto - modificación de producto --> PUT /productos //
+	//////////////////////////////////////////////////////////////////
+	@PutMapping
+	public ResponseEntity<Producto> updateProducto(@RequestBody Producto producto) {
+		Optional<Producto> optionalProducto = productosDAO.findById(producto.getId());
+		if (optionalProducto.isPresent()) {
+			Producto updateProducto = optionalProducto.get();
+			updateProducto.setCategoria(producto.getCategoria());
+			updateProducto.setColores(producto.getColores());
+			updateProducto.setDescCorta(producto.getDescCorta());
+			updateProducto.setDescLarga(producto.getDescLarga());
+			updateProducto.setDescuento(producto.getDescuento());
+			updateProducto.setImgLista(producto.getImgLista());
+			updateProducto.setImgPortada(producto.getImgPortada());
+			updateProducto.setMarca(producto.getMarca());
+			updateProducto.setMoneda(producto.getMoneda());
+			updateProducto.setNombre(producto.getNombre());
+			updateProducto.setPrecio(producto.getPrecio());
+			updateProducto.setTalles(producto.getTalles());
+			updateProducto.setTemporada(producto.getTemporada());
+			updateProducto.setTipo(producto.getTipo());
+			productosDAO.save(updateProducto);
+			return ResponseEntity.ok(updateProducto);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
+	
+	//////////////////////////////////////////////////////////////////
+	// deleteProducto - Baja de producto --> DELETE /productos/{id} //
+	//////////////////////////////////////////////////////////////////
+	@DeleteMapping(value = "{id}")
+	public ResponseEntity<Void> deleteProducto(@PathVariable("id") Long id) {
+		Optional<Producto> optionalproducto = productosDAO.findById(id);
+		if (optionalproducto.isPresent()) {
+			productosDAO.deleteById(id);
+			return ResponseEntity.ok(null);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+	
+	/////////////////////////////////////////////////////////////////
+	// createProducto - Alta de nuevo producto --> POST /productos //
+	/////////////////////////////////////////////////////////////////
+	@PostMapping
+	public ResponseEntity<Producto> createProducto(@RequestBody Producto producto) {
+		Producto newProducto = productosDAO.save(producto);
+		return ResponseEntity.ok(newProducto);
+	}
+
+	////////////////////////////////////////////////////////////////////////
+	// getProductoById - Responde producto por id --> GET /productos/{id} //
+	////////////////////////////////////////////////////////////////////////
+	@RequestMapping(value = "{id}")
+	public ResponseEntity<Producto> getProductoById(@PathVariable("id") Long id) {
+		Optional<Producto> optionalproducto = productosDAO.findById(id);
+		if (optionalproducto.isPresent()) {
+			return ResponseEntity.ok(optionalproducto.get());
+		} else {
+			return ResponseEntity.noContent().build();
+		}
+	}
+
+	///////////////////////////////////////////////////////////////////
+	// getProducto - Responde todos los productos --> GET /productos //
+	///////////////////////////////////////////////////////////////////
+	@GetMapping
+	public ResponseEntity<List<Producto>> getProducto() {
+		List<Producto> productos = productosDAO.findAll();
+		return ResponseEntity.ok(productos);
+	}
+
+//	@GetMapping
+//	public String Hello() {
+//		return "API Productos de Pura Vida!";
+//	}
 
 }
